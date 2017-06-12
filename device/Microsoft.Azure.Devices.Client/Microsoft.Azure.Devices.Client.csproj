@@ -59,34 +59,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Choose>
-    <When Condition="'$(DotNettyPath)' == ''">
-      <ItemGroup>
-        <Reference Include="DotNetty.Buffers, Version=0.4.4.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-          <HintPath>$(SolutionDir)\packages\DotNetty.Buffers.0.4.4\lib\net45\DotNetty.Buffers.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-        <Reference Include="DotNetty.Codecs, Version=0.4.4.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-          <HintPath>$(SolutionDir)\packages\DotNetty.Codecs.0.4.4\lib\net45\DotNetty.Codecs.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-        <Reference Include="DotNetty.Codecs.Mqtt, Version=0.4.4.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-          <HintPath>$(SolutionDir)\packages\DotNetty.Codecs.Mqtt.0.4.4\lib\net45\DotNetty.Codecs.Mqtt.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-        <Reference Include="DotNetty.Common, Version=0.4.4.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-          <HintPath>$(SolutionDir)\packages\DotNetty.Common.0.4.4\lib\net45\DotNetty.Common.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-        <Reference Include="DotNetty.Handlers, Version=0.4.4.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-          <HintPath>$(SolutionDir)\packages\DotNetty.Handlers.0.4.4\lib\net45\DotNetty.Handlers.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-        <Reference Include="DotNetty.Transport, Version=0.4.4.0, Culture=neutral, PublicKeyToken=bc13ca065fa06c29, processorArchitecture=MSIL">
-          <HintPath>$(SolutionDir)\packages\DotNetty.Transport.0.4.4\lib\net45\DotNetty.Transport.dll</HintPath>
-          <Private>True</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
+    <When Condition="'$(DotNettyPath)' == ''" />
     <Otherwise>
       <ItemGroup>
         <ProjectReference Include="$(DotNettyPath)\src\DotNetty.Buffers\DotNetty.Buffers.csproj">
@@ -117,10 +90,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Reference Include="Microsoft.Azure.Amqp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Microsoft.Azure.Amqp.2.0.4\lib\net45\Microsoft.Azure.Amqp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>$(SolutionDir)\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
       <Private>True</Private>
@@ -289,6 +258,34 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\azure-amqp\Microsoft.Azure.Amqp\Microsoft.Azure.Amqp.csproj">
+      <Project>{aaf4f9f6-b159-4c27-8934-d61503911539}</Project>
+      <Name>Microsoft.Azure.Amqp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DotNetty\src\DotNetty.Buffers\DotNetty.Buffers.csproj">
+      <Project>{b40b1062-348d-4c21-9678-06f706b5dcc0}</Project>
+      <Name>DotNetty.Buffers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DotNetty\src\DotNetty.Codecs.Mqtt\DotNetty.Codecs.Mqtt.csproj">
+      <Project>{e0e6e07c-e752-4f69-9f80-7319f17e6240}</Project>
+      <Name>DotNetty.Codecs.Mqtt</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DotNetty\src\DotNetty.Codecs\DotNetty.Codecs.csproj">
+      <Project>{32d6e944-6dbd-49e6-adf7-67a73ff37393}</Project>
+      <Name>DotNetty.Codecs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DotNetty\src\DotNetty.Common\DotNetty.Common.csproj">
+      <Project>{bbc12b43-776d-4d27-aeaf-d4992613cb7a}</Project>
+      <Name>DotNetty.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DotNetty\src\DotNetty.Handlers\DotNetty.Handlers.csproj">
+      <Project>{1f807703-dba3-4683-8f54-9969ea1fa00b}</Project>
+      <Name>DotNetty.Handlers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\DotNetty\src\DotNetty.Transport\DotNetty.Transport.csproj">
+      <Project>{3988d1d5-78ed-4812-a022-38068cf3fd71}</Project>
+      <Name>DotNetty.Transport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\shared\Microsoft.Azure.Devices.Shared\Microsoft.Azure.Devices.Shared.csproj">
       <Project>{835230fc-8d03-4cd1-8845-5a9d1b0b837d}</Project>
       <Name>Microsoft.Azure.Devices.Shared</Name>

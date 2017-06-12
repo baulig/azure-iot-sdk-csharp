@@ -84,6 +84,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\azure-amqp\Microsoft.Azure.Amqp.PCL\Microsoft.Azure.Amqp.PCL.csproj">
+      <Project>{1c41f858-5308-4d12-89f6-dda0bc0c72c0}</Project>
+      <Name>Microsoft.Azure.Amqp.PCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\shared\Microsoft.Azure.Devices.Shared.PCL\Microsoft.Azure.Devices.Shared.PCL.csproj">
       <Project>{f3be6617-0714-4615-a916-48362be8266d}</Project>
       <Name>Microsoft.Azure.Devices.Shared.PCL</Name>
